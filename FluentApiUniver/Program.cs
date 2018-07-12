@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace FluentApiUniver
 {
@@ -39,7 +40,13 @@ namespace FluentApiUniver
         public List<Curs> GetCurses { get; set; }
     }
 
-    
+    public class FluentContext : DbContext
+    {
+        public DbSet<Profesor> GetProfesors { get; set; }
+        public DbSet<Student> GetStudents { get; set; }
+        public DbSet<Curs> GetCurs { get; set; }
+        public DbSet<Grupa> GetGrupas { get; set; }
+    }
 
     class Program
     {
