@@ -11,25 +11,27 @@ namespace FluentApiUniver.configurations
     {
         public StudenBuilder()
         {
-            
-               
-               Property(n => n.Name)
-               .HasColumnName("studentName")
-               .HasMaxLength(255);
+            HasKey(i => i.ID);
 
-            
-                
-                Property(i => i.ID)
-                .HasColumnName("idStudent");
 
-            
-                
-                HasMany(s => s.GetCurs);
+            Property(n => n.Name)
+            .HasColumnName("studentName")
+            .HasMaxLength(255);
 
-                
-                HasRequired(s => s.GetGrupa)
-                .WithMany(g => g.GetStudents)
-                .HasForeignKey(s => s.IDGrupa);
+
+
+            Property(i => i.ID)
+            .HasColumnOrder(2)
+            .HasColumnName("idStudent");
+
+
+
+            HasMany(s => s.GetCurs);
+
+
+            HasRequired(s => s.GetGrupa)
+            .WithMany(g => g.GetStudents)
+            .HasForeignKey(s => s.IDGrupa);
 
         }
     }
