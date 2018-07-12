@@ -30,6 +30,7 @@ namespace FluentApiUniver
         public string Name { get; set; }
         public List<Grupa> GetGrupas { get; set; }
         public Profesor GetProfesor { get; set; }
+        public int IDProfesor { get; set; }
     }
 
     public class Grupa
@@ -49,6 +50,39 @@ namespace FluentApiUniver
         public FluentContext()
             :base("name=DefaultConnection")
         {
+
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder
+                .Entity<Profesor>()
+                .HasKey(p=>p.ID)
+                .Property(p => p.Name)
+                .HasColumnName("ProfesorName")
+                .HasMaxLength(255);
+
+            modelBuilder
+                .Entity<Profesor>()
+                .Property(p => p.ID)
+                .HasColumnName("profesorID")
+                .HasColumnOrder(2);
+
+            modelBuilder
+                .Entity<Profesor>()
+                .HasMany(p => p.GetCurs)
+                .WithRequired(c => c.GetProfesor)
+                .HasForeignKey(c => c.IDProfesor);
+
+            modelBuilder
+                .Entity<Profesor>()
+                .HasMany(p => p.GetGrupas);
+
+
+                
+                
 
         }
     }
