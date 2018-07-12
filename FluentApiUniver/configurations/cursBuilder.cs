@@ -11,6 +11,7 @@ namespace FluentApiUniver.configurations
     {
         public cursBuilder()
         {
+            HasKey(p => p.ID);
 
             Property(c => c.ID)
             .HasColumnName("cursID");

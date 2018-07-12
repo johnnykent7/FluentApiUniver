@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="configurations\cursBuilder.cs" />
+    <Compile Include="configurations\grupaBuilder.cs" />
     <Compile Include="configurations\ProfessorBuilder.cs" />
     <Compile Include="configurations\StudenBuilder.cs" />
     <Compile Include="Migrations\201807121237008_initial.cs" />

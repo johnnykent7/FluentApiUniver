@@ -60,10 +60,7 @@ namespace FluentApiUniver
             modelBuilder.Configurations.Add(new ProfessorBuilder());
             modelBuilder.Configurations.Add(new StudenBuilder());
             modelBuilder.Configurations.Add(new cursBuilder());
-           
-      
-
-
+            modelBuilder.Configurations.Add(new grupaBuilder());
         }
     }
 
