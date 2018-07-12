@@ -46,6 +46,11 @@ namespace FluentApiUniver
         public DbSet<Student> GetStudents { get; set; }
         public DbSet<Curs> GetCurs { get; set; }
         public DbSet<Grupa> GetGrupas { get; set; }
+        public FluentContext()
+            :base("name=DefaultConnection")
+        {
+
+        }
     }
 
     class Program
