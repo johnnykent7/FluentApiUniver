@@ -23,6 +23,7 @@ namespace FluentApiUniver
         public string Name { get; set; }
         public List<Curs> GetCurs { get; set; }
         public Grupa GetGrupa { get; set; }
+        public int IDGrupa { get; set; }
     }
 
     public class Curs
@@ -57,6 +58,11 @@ namespace FluentApiUniver
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new ProfessorBuilder());
+            modelBuilder.Configurations.Add(new StudenBuilder());
+           
+
+
+
         }
     }
 
