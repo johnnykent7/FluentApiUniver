@@ -33,6 +33,7 @@ namespace FluentApiUniver
         public List<Grupa> GetGrupas { get; set; }
         public Profesor GetProfesor { get; set; }
         public int IDProfesor { get; set; }
+        public List<Student> GetStudents { get; set; }
     }
 
     public class Grupa
@@ -41,6 +42,7 @@ namespace FluentApiUniver
         public string Nume { get; set; }
         public List<Student> GetStudents { get; set; }
         public List<Curs> GetCurses { get; set; }
+        public List<Profesor> GetProfesors { get; set; }
     }
 
     public class FluentContext : DbContext

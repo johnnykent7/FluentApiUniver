@@ -32,7 +32,14 @@ namespace FluentApiUniver.configurations
 
 
 
-            HasMany(p => p.GetGrupas);
+            HasMany(p => p.GetGrupas)
+            .WithMany(p => p.GetProfesors)
+            .Map(p =>
+            {
+                p.MapLeftKey("GrupaID");
+                p.MapRightKey("ProfesorID");
+                p.ToTable("ProfesorGroup");
+            });
         }
     }
 }

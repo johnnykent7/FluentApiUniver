@@ -26,12 +26,20 @@ namespace FluentApiUniver.configurations
 
 
 
-            HasMany(s => s.GetCurs);
+            HasMany(s => s.GetCurs)
+            .WithMany(c => c.GetStudents)
+            .Map(m =>
+            {
+                m.MapLeftKey("cursID");
+                m.MapRightKey("studentID");
+                m.ToTable("StudentCUrses");
+            });
 
 
             HasRequired(s => s.GetGrupa)
             .WithMany(g => g.GetStudents)
             .HasForeignKey(s => s.IDGrupa);
+
 
         }
     }
